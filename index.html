@@ -154,7 +154,11 @@ Choose the state for which you want a member list, whether you want the Senate o
 
 
 
-  <label><b>ProPublica API Key:</b></label>  <input type="text" class="apikey" size="20" value="Paste API key here"><br><br>
+  <label><b>ProPublica API Key:</b></label>  <input type="text" class="apikey" size="20"><br><br>
+
+<div id="oops"> </div>
+
+
   <i>You'll need an API Key to use this tool. You can get them free from <a href="https://www.propublica.org/datastore/api/propublica-congress-api">https://www.propublica.org/datastore/api/propublica-congress-api</a> .</i><br><br>
  
 
@@ -229,6 +233,16 @@ Choose the state for which you want a member list, whether you want the Senate o
 
 function explorer(){
 
+
+var apikey = document.querySelector(".apikey").value
+
+  if (apikey == null || apikey == "") {
+         alert("Please enter a ProPublica API key. This tool won't work without one.");
+         return false;
+      }
+
+
+
     // Getting values from form 
 
     var searchq = document.querySelector(".searchq").value
@@ -239,7 +253,7 @@ function explorer(){
     console.log(state)
    
 
-  var apikey = document.querySelector(".apikey").value
+  
     
 
 
